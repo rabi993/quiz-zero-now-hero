@@ -116,6 +116,24 @@
 
             <span class="font-medium text-green-800">Answer:</span><br>
 
+            <span class="font-semibold">How the quizTimer() function works: </span>
+
+            If the dismiss parameter is true, it clears the interval (clearInterval(timer)) to stop the timer and exit
+            the function.
+            If the dismiss parameter is not true, it sets up an interval function that runs every 1000 milliseconds (1
+            second).
+
+            In the interval function:
+
+            It retrieves the HTML element with the ID "count" and stores it in the countHtml variable.
+            It calculates the minutes and seconds part of the timer using integer division (covtMin) and modulo (mod)
+            operations.
+            It formats the minutes and seconds to ensure they have leading zeros if necessary.
+            It updates the countHtml element's innerHTML to display the formatted time along with a "sec" subscript.
+            It increments the count variable, which keeps track of the elapsed time in seconds.
+            If the count exceeds 60 seconds, it alternates the text color of the countHtml element between red shades
+            every 2 seconds.
+
            
 
         </p>
@@ -124,6 +142,26 @@
 
             <span class="font-medium text-green-800 pb-4">Answer:</span><br>
             
+            <span class="font-semibold">How the chooseQuiz() function works: </span>
+
+            1. It checks if an entry with the same id as the current quiz question (retrieved from quizData[index].id)
+            exists in the answers array using the Array.prototype.find() method.
+            2. If an entry with the same id exists in the answers array (isExist is truthy), it means that the user has
+            already answered this question before. In this case: It initializes a serial variable to keep track of the
+            index of the found entry in the answers array.
+            It iterates over the answers array using a for...of loop.
+            When it finds an entry with a matching id, it replaces that entry with a new object that combines the
+            properties of the current quiz question from quizData[index] with the givenAns property.
+            It breaks out of the loop after updating the entry.
+            3. If no entry with the same id exists in the answers array (isExist is falsy), it means that the user is
+            answering this question for the first time. In this case:
+            It adds a new object to the answers array, combining the properties of the current quiz question from
+            quizData[index] with the givenAns property.
+            4. After updating or adding the answer, it calls a function named displayAnswers and passes the updated
+            answers array to it. Presumably, this function is responsible for rendering or displaying the user's
+            answers.
+
+
 
         </p>
 
