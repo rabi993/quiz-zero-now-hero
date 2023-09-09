@@ -33,7 +33,7 @@ const displayQuiz = (data) => {
   data.forEach((quiz, i) => {
     quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-sm rounded">
   <div class="flex items-center">
-    <div class="h-8 w-8 bg-green-300 rounded-full flex justify-center items-center text-green-800 mr-3">
+    <div class="h-8 w-8 bg-green-800 rounded-full flex justify-center items-center text-white mr-3">
       ${i + 1}
     </div>
     <p class="text-gray-800 text-sm">${quiz.question}</p>
@@ -80,7 +80,7 @@ const displayQuizOptions = (quiz, i) => {
   let generatedOptions = "";
   for (let option of quiz) {
     generatedOptions += `<div
-      class="border border-gray-200 rounded text-xs p-2 cursor-pointer"
+      class="border border-gray-300 rounded text-xs p-2 cursor-pointer"
       onclick="chooseQuiz('${i}', '${option}')">
       <p class="text-[10px] mb-1">Option ${serial}</p>
       ${option}
@@ -97,7 +97,7 @@ document.querySelector("#submit").addEventListener("click", () => {
   }
   quizTimer(true);
   answersContainer.innerHTML = `<div class="my-4">
-  <i class="fa-solid fa-fan animate-spin text-2xl text-green-600"></i>
+  <i class="fa-solid fa-fan animate-spin text-2xl text-green-800"></i>
   <p class="text-xs animate-pulse">Please Wait, We are checking...</p>
 </div>`;
   let timeTaken = document.querySelector("#count");
@@ -183,7 +183,7 @@ document.querySelector("#submit").addEventListener("click", () => {
     </p>
   </div>
   
-  <button onclick="location.reload();" class="bg-green-600 text-white w-full py-2 rounded mt-16">Restart</button>
+  <button onclick="location.reload();" class="bg-green-800 text-white w-full py-2 rounded mt-16">Restart</button>
   ${
     storage
       ? `<div class="mt-5">
@@ -195,13 +195,13 @@ document.querySelector("#submit").addEventListener("click", () => {
     <div>Time</div>
     </div>
 
-    <h1 class="text-center bg-green-600 text-white ">Your Present Result</h1>
+    <h1 class="text-center bg-green-700 text-white ">Your Present Result</h1>
     <div class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">
        <div>${marksL}/60</div>
        <div>${gradeL}</div>
         <div>${timeL}</div>
     </div>
-    <h1 class="text-center  bg-green-500 text-white ">Your previous Submissions Results</h1>
+    <h1 class="text-center  bg-green-600 text-white ">Your previous Submissions Results</h1>
 
 
     ${storage

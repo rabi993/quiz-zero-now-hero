@@ -101,10 +101,10 @@ const showAnswers = (data) => {
     quizContainer.innerHTML += `<div class="text-left">
           <h1 class="mt-4 mb-3 text-md">${idx + 1 + ". " + answer.question}</h1>
           <div>
-          <h1 class="text-sm">Given Answer: <span class="text-orange-600">${
+          <h1 class="text-sm">Given Answer: <span class="text-orange-800">${
             answer.givenAns
           }</span></h1>
-          <h1 class="text-sm">Correct Answer: <span class="text-green-600">${
+          <h1 class="text-sm">Correct Answer: <span class="text-green-800">${
             answer.answer
           }</span></h1>
           <p class="text-[10px] mt-5"><span class="font-medium mr-1">Description:</span>${
