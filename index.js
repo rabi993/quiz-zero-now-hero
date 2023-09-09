@@ -59,7 +59,7 @@ startQuiz.addEventListener("click", () => {
       counterNum = 3;
       count = 0;
       timer = null;
-      quizData = null;
+      quizData = [];
       answers = [];
       rulesContainer.classList.add("hidden");
       alertContainer.classList.remove("hidden");
@@ -74,7 +74,21 @@ startQuiz.addEventListener("click", () => {
   }, 1000);
 });
 
-
+// display quiz options
+const displayQuizOptions = (quiz, i) => {
+  let serial = 1;
+  let generatedOptions = "";
+  for (let option of quiz) {
+    generatedOptions += `<div
+      class="border border-gray-200 rounded text-xs p-2 cursor-pointer"
+      onclick="chooseQuiz('${i}', '${option}')">
+      <p class="text-[10px] mb-1">Option ${serial}</p>
+      ${option}
+    </div>`;
+    serial++;
+  }
+  return generatedOptions;
+};
 
 // EventListener for quiz submit button
 document.querySelector("#submit").addEventListener("click", () => {
@@ -111,12 +125,12 @@ document.querySelector("#submit").addEventListener("click", () => {
   }
 
   // data setting on local storage and getting data from local storage
-  let storage = JSON.parse(localStorage.getItem("result"));
-  if (storage) {
+  let storage = JSON.parse(localStorage.getItem("results"));
+  if (!storage) {
     localStorage.setItem(
       "results",
       JSON.stringify([
-        ...storage,
+        
         {
           marks: totalMark,
           examTime: timeTaken.innerText,
@@ -128,11 +142,13 @@ document.querySelector("#submit").addEventListener("click", () => {
     localStorage.setItem(
       "results",
       JSON.stringify([
+        
         {
           marks: totalMark,
           examTime: timeTaken.innerText,
           status: grade.status,
         },
+        ...storage,
       ])
     );
   }
@@ -167,7 +183,7 @@ document.querySelector("#submit").addEventListener("click", () => {
     <div>Time</div>
     </div>
     ${storage
-      ?.reverse()
+      
       ?.map(
         (item) => `<div
       class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">

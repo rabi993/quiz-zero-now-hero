@@ -29,21 +29,7 @@ const quizTimer = (dismiss) => {
   }, 1000);
 };
 
-// display quiz options
-const displayQuizOptions = (quiz, i) => {
-  let serial = 1;
-  let generatedOptions = "";
-  for (let option of quiz) {
-    generatedOptions += `<div
-      class="border border-gray-200 rounded text-xs p-2 cursor-pointer"
-      onclick="chooseQuiz('${i}', '${option}')">
-      <p class="text-[10px] mb-1">Option ${serial}</p>
-      ${option}
-    </div>`;
-    serial++;
-  }
-  return generatedOptions;
-};
+
 
 // select or choose quiz
 const chooseQuiz = (index, givenAns) => {
