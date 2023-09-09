@@ -156,6 +156,18 @@ document.querySelector("#submit").addEventListener("click", () => {
   // Right side bar/ answer section
   let x = setTimeout(() => {
     showAnswers(answers);
+
+    let resultL = {};
+    const storedResultL = localStorage.getItem('results');
+    resultL = JSON.parse(storedResultL);
+
+    console.log(resultL)
+
+    let marksL =resultL[0].marks;
+    let gradeL =resultL[0].examTime;
+    let timeL =resultL[0].status;
+
+
     displayResult.innerHTML = `<div
     class="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center border-2 rounded-tr-[50%] rounded-bl-[50%]"
   >
@@ -175,13 +187,23 @@ document.querySelector("#submit").addEventListener("click", () => {
   ${
     storage
       ? `<div class="mt-5">
-      <h1 class="text-center">Previous Submissions <button class="text-blue-800 text-xs" onclick={localStorage.clear();location.reload()}>Clear History</button></h1>
+      <h1 class="text-center"> Your Submissions<button class="text-blue-800 text-xs" onclick={localStorage.clear();location.reload()}>Clear History</button></h1>
     <div
     class="flex justify-between items-center border rounded p-2 my-2 shadow-sm font-medium">
     <div>Marks</div>
     <div>Grade</div>
     <div>Time</div>
     </div>
+
+    <h1 class="text-center bg-green-600 text-white ">Your Present Result</h1>
+    <div class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">
+       <div>${marksL}/60</div>
+       <div>${gradeL}</div>
+        <div>${timeL}</div>
+    </div>
+    <h1 class="text-center  bg-green-500 text-white ">Your previous Submissions Results</h1>
+
+
     ${storage
       
       ?.map(
