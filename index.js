@@ -31,7 +31,7 @@ const displayQuiz = (data) => {
   }
 
   data.forEach((quiz, i) => {
-    quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-sm rounded">
+    quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-xl rounded">
   <div class="flex items-center">
     <div class="h-8 w-8 bg-green-800 rounded-full flex justify-center items-center text-white mr-3">
       ${i + 1}
@@ -169,7 +169,7 @@ document.querySelector("#submit").addEventListener("click", () => {
 
 
     displayResult.innerHTML = `<div
-    class="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center border-2 rounded-tr-[50%] rounded-bl-[50%]"
+    class="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center border-2 border-green-800  rounded-tr-[25%] rounded-bl-[25%]"
   >
     <h3 class="text-xl ${grade.color}">${grade.status}</h3>
     <h1 class="text-3xl font-bold my-2">
@@ -195,13 +195,13 @@ document.querySelector("#submit").addEventListener("click", () => {
     <div>Time</div>
     </div>
 
-    <h1 class="text-center bg-green-700 text-white ">Your Present Result</h1>
+    <h1 class="text-center bg-green-700 text-white rounded">Your Present Result</h1>
     <div class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">
        <div>${marksL}/60</div>
        <div>${gradeL}</div>
         <div>${timeL}</div>
     </div>
-    <h1 class="text-center  bg-green-600 text-white ">Your previous Submissions Results</h1>
+    <h1 class="text-center  bg-green-600 text-white rounded">Your previous Submissions Results</h1>
 
 
     ${storage
